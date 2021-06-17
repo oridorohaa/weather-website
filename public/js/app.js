@@ -19,7 +19,7 @@ const weatherForm = document.querySelector("form");
 const searchEl = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
 const messageTwo = document.querySelector("#message-2");
-
+const messsageThree = document.querySelector("#message-3");
 // messageOne.textContent = "From Javascript";
 
 weatherForm.addEventListener("submit", (e) => {
@@ -27,6 +27,7 @@ weatherForm.addEventListener("submit", (e) => {
   const location = searchEl.value;
   messageOne.textContent = "Loading...";
   messageTwo.textContent = " ";
+  messsageThree.textContent = " ";
 
   fetch(`/weather?address=${location}`).then((response) => {
     response.json().then((data) => {
@@ -35,6 +36,7 @@ weatherForm.addEventListener("submit", (e) => {
       } else {
         messageOne.textContent = data.location;
         messageTwo.textContent = data.forecast;
+        messsageThree.textContent = "Have a wonderful day! :)";
       }
     });
   });
